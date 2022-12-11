@@ -69,6 +69,7 @@ def train_epoch(net, train_loader, optimizer, args):
             data, target = data.cuda(), target.cuda()
         
         optimizer.zero_grad()
+        print('start net forward')
         output = net(data)
         loss = F.cross_entropy(output, target)
         print('batch_index',bid)
