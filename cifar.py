@@ -62,6 +62,8 @@ def train_epoch(net, train_loader, optimizer, args):
     loss_sum = 0
     count = 0
     correct = 0
+    print('start epcoh')
+    print('length',length(train_loader))
     for bid, (data, target) in enumerate(train_loader):
         if args.gpu:
             data, target = data.cuda(), target.cuda()
@@ -69,7 +71,7 @@ def train_epoch(net, train_loader, optimizer, args):
         optimizer.zero_grad()
         output = net(data)
         loss = F.cross_entropy(output, target)
-        # print(bid,'  ',loss.item())
+        print('batch_index',bid)
         loss.backward()
         optimizer.step()
         
