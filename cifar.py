@@ -63,7 +63,7 @@ def train_epoch(net, train_loader, optimizer, args):
     count = 0
     correct = 0
     print('start epcoh')
-    print('length',length(train_loader))
+    print('length',len(train_loader))
     for bid, (data, target) in enumerate(train_loader):
         if args.gpu:
             data, target = data.cuda(), target.cuda()
